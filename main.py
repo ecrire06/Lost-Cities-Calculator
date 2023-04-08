@@ -1,39 +1,58 @@
-# =======LOST CITY CALCULATOR========
-print("=======LOST CITY CALCULATOR========")
+from tkinter import *
+import tkinter as tk
 
-# ========CALCULATE LINE=======
-def cal_line(result):
-  score = 0
-  hands = result[0]
-  nums = result[1:]
-  score += (hands + 1) * sum(nums)
-  return score
+value = 0
 
-# ========USER INPUT=======
-def user_input():
-  c_1 = list(map(int, input("RED의 결과를 입력하세요: ").split()))
-  c_2 = list(map(int, input("BLUE의 결과를 입력하세요: ").split()))
-  c_3 = list(map(int, input("GREEN의 결과를 입력하세요: ").split()))
-  c_4 = list(map(int, input("YELLOW의 결과를 입력하세요: ").split()))
-  c_5 = list(map(int, input("WHITE의 결과를 입력하세요: ").split()))
-  c_6 = list(map(int, input("PURPLE의 결과를 입력하세요: ").split()))
-  result = [c_1, c_2, c_3, c_4, c_5, c_6]
-  return result
+def press(num):
+  global value
+  value += int(num)
+  equation.set(value)
 
-player1 = 0
-player2 = 0
 
-for i in range(2):
-  print(f"\n=======PLAYER {i+1} INPUT=======")
-  for j in user_input():
-    globals()["player{}".format(i+1)] += cal_line(j)
-  result = [] # result 초기화
+def clear():
+  global value
+  value = 0
+  equation.set(0)
 
-print("\n=======GAME RESULT=======")
-print(f"PLAYER 1: {player1} || PLAYER 2: {player2}")
-if player1 > player2:
-  print("PLAYER 1 WIN!")
-elif player1 < player2:
-  print("PLAYER 2 WIN!")
-else:
-  print("DRAW!")
+
+#def save():
+#  global expression
+
+
+if __name__ == "__main__":
+  gui = Tk()
+  gui.title("Lost City Calculator")
+  equation = IntVar()
+  expression_field = Entry(gui, textvariable=equation)
+  expression_field.grid(columnspan=6, ipadx=70)
+  for i in range(10):
+    for j in range(6):
+      text = i + 1 if i != 0 else 'x'
+      btn = Button(gui,
+                   text=f'{text}',
+                   fg='black',
+                   bg='white',
+                   activebackground='grey',
+                   command=lambda k=i: press(k + 1),
+                   height=1,
+                   width=1)
+      btn.grid(row=i + 1, column=j)
+#  save = Button(gui,
+#                test='Save',
+#                fg='black',
+#                bg='white',
+#                activebackground='grey',
+#                commane=save,
+#                height=1,
+#                width=1)
+#  save.grid(row=12, column=4)
+  clear = Button(gui,
+                 text='Clear',
+                 fg='black',
+                 bg='white',
+                 activebackground='grey',
+                 command=clear,
+                 height=1,
+                 width=1)
+  clear.grid(row=12, column=5)
+  gui.mainloop()
