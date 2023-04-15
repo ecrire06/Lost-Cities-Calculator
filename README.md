@@ -9,6 +9,7 @@
   <img src="https://img.shields.io/badge/Replit-F26207?style=flat&logo=Replit&logoColor=white" />
   <h4>SNS</h4>
   <img src="https://img.shields.io/badge/Blog-FF8800?style=flat&logo=Blogger&logoColor=white" href="https://junchive.kr"/>
+  <a href="https://junchive.kr/2023-04-15-Lost-Cities-Calculator/">Junchive Blog</a>
 </div>
 
 
