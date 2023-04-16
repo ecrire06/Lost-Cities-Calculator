@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&height=100&section=header&text=Lost-City-Calculator&fontSize=90)
+![logo](/lostcity_cal_logo.png)
 
 <div align="center">
   <h3>Tech Stack</h3>
@@ -38,3 +38,4 @@ This project is licensed under the terms of the MIT license.
 
 ## Replit 구현
 <iframe src="https://replit.com/@ecrire06/Lost-City-Calculator" width="600" height="400" />
+
